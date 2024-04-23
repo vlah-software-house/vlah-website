@@ -6,8 +6,8 @@ import '@/styles/tailwind.css'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - Studio',
-    default: 'Studio - Award winning developer studio based in Denmark',
+    template: '%s - Vlah Software House',
+    default: 'Vlah Software House - Developer studio. We build web and mobile applications.',
   },
 }
 
