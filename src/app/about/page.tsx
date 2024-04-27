@@ -9,19 +9,15 @@ import { GridList, GridListItem } from '@/components/GridList'
 import { PageIntro } from '@/components/PageIntro'
 import { PageLinks } from '@/components/PageLinks'
 import { SectionIntro } from '@/components/SectionIntro'
-import { StatList, StatListItem } from '@/components/StatList'
-import imageAngelaFisher from '@/images/team/angela-fisher.jpg'
-import imageBenjaminRussel from '@/images/team/benjamin-russel.jpg'
-import imageBlakeReid from '@/images/team/blake-reid.jpg'
-import imageChelseaHagon from '@/images/team/chelsea-hagon.jpg'
-import imageDriesVincent from '@/images/team/dries-vincent.jpg'
-import imageEmmaDorsey from '@/images/team/emma-dorsey.jpg'
-import imageJeffreyWebb from '@/images/team/jeffrey-webb.jpg'
-import imageKathrynMurphy from '@/images/team/kathryn-murphy.jpg'
-import imageLeonardKrasner from '@/images/team/leonard-krasner.jpg'
-import imageLeslieAlexander from '@/images/team/leslie-alexander.jpg'
-import imageMichaelFoster from '@/images/team/michael-foster.jpg'
-import imageWhitneyFrancis from '@/images/team/whitney-francis.jpg'
+import imageSam from '@/images/team/sam.jpeg'
+import imageDragos from '@/images/team/dragos.jpeg'
+import imageHector from '@/images/team/hector.jpeg'
+import imageAlex from '@/images/team/alex.jpeg'
+import imageAndrei from '@/images/team/andrei.jpeg'
+import imageMadalin from '@/images/team/madalin.jpeg'
+import imageGMadalin from '@/images/team/gmadalin.jpeg'
+import imageMihai from '@/images/team/mihai.jpeg'
+import imageLoredana from '@/images/team/loredana.jpeg'
 import { loadArticles } from '@/lib/mdx'
 
 function Culture() {
@@ -61,69 +57,59 @@ const team = [
     title: 'Leadership',
     people: [
       {
-        name: 'Leslie Alexander',
+        name: 'Petre Dragos Vilcu',
         role: 'Co-Founder / CEO',
-        image: { src: imageLeslieAlexander },
+        image: { src: imageDragos },
       },
       {
-        name: 'Michael Foster',
+        name: 'Madalin Ignisca',
         role: 'Co-Founder / CTO',
-        image: { src: imageMichaelFoster },
+        image: { src: imageMadalin },
       },
       {
-        name: 'Dries Vincent',
-        role: 'Partner & Business Relations',
-        image: { src: imageDriesVincent },
+        name: 'Madalon Ghita',
+        role: 'Partner & Marketing Director',
+        image: { src: imageGMadalin },
       },
     ],
   },
   {
-    title: 'Team',
+    title: 'Development',
     people: [
       {
-        name: 'Chelsea Hagon',
-        role: 'Senior Developer',
-        image: { src: imageChelseaHagon },
+        name: 'Sam Anglin',
+        role: 'PHP | Laravel developer',
+        image: { src: imageSam },
       },
       {
-        name: 'Emma Dorsey',
-        role: 'Senior Designer',
-        image: { src: imageEmmaDorsey },
+        name: 'Héctor Hernández',
+        role: 'Senior Software Developer',
+        image: { src: imageHector },
       },
       {
-        name: 'Leonard Krasner',
-        role: 'VP, User Experience',
-        image: { src: imageLeonardKrasner },
+        name: 'Alex Popa',
+        role: 'Senior FrontEnd Developer',
+        image: { src: imageAlex },
       },
       {
-        name: 'Blake Reid',
-        role: 'Junior Copywriter',
-        image: { src: imageBlakeReid },
+        name: 'Andrei Samoila',
+        role: 'Software Developer',
+        image: { src: imageAndrei },
+      },
+    ],
+  },
+  {
+    title: 'UX & Design',
+    people: [
+      {
+        name: 'Mihai Baldean',
+        role: 'UX/UI Designer',
+        image: { src: imageMihai },
       },
       {
-        name: 'Kathryn Murphy',
-        role: 'VP, Human Resources',
-        image: { src: imageKathrynMurphy },
-      },
-      {
-        name: 'Whitney Francis',
-        role: 'Content Specialist',
-        image: { src: imageWhitneyFrancis },
-      },
-      {
-        name: 'Jeffrey Webb',
-        role: 'Account Coordinator',
-        image: { src: imageJeffreyWebb },
-      },
-      {
-        name: 'Benjamin Russel',
-        role: 'Senior Developer',
-        image: { src: imageBenjaminRussel },
-      },
-      {
-        name: 'Angela Fisher',
-        role: 'Front-end Developer',
-        image: { src: imageAngelaFisher },
+        name: 'Loredana Papp-Dinea',
+        role: 'Design Visionary',
+        image: { src: imageLoredana },
       },
     ],
   },
@@ -209,13 +195,6 @@ export default async function About() {
           </p>
         </div>
       </PageIntro>
-      <Container className="mt-16">
-        <StatList>
-          <StatListItem value="35" label="Underpaid employees" />
-          <StatListItem value="52" label="Placated clients" />
-          <StatListItem value="$25M" label="Invoices billed" />
-        </StatList>
-      </Container>
 
       <Culture />
 
