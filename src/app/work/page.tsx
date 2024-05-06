@@ -149,13 +149,9 @@ export default async function Work() {
     <>
       <PageIntro
         eyebrow="Our work"
-        title="Proven solutions for real-world problems."
+        title="Case Studies: <span class='text-red-500'>Proven Results</span>"
       >
-        <p>
-          We believe in efficiency and maximizing our resources to provide the
-          best value to our clients. The primary way we do that is by re-using
-          the same five projects we’ve been developing for the past decade.
-        </p>
+        <p>Here are some examples that showcase the impact of our tailored solutions for businesses across various industries. These case studies demonstrate our expertise and commitment to driving success for our clients.</p>
       </PageIntro>
 
       <CaseStudies caseStudies={caseStudies} />

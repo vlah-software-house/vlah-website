@@ -29,8 +29,8 @@ export function PageIntro({
               'mt-6 block max-w-5xl font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-6xl',
               centered && 'mx-auto',
             )}
+            dangerouslySetInnerHTML={{ __html: title }}
           >
-            {title}
           </span>
         </h1>
         <div

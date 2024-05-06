@@ -22,27 +22,27 @@ import { loadArticles } from '@/lib/mdx'
 
 function Culture() {
   return (
-    <div className="mt-24 rounded-4xl bg-neutral-950 py-24 sm:mt-32 lg:mt-40 lg:py-32">
+    <div className="mt-24  bg-neutral-950 py-24 sm:mt-32 lg:mt-40 lg:py-32">
       <SectionIntro
-        eyebrow="Our culture"
-        title="Balance your passion with your passion for life."
+        eyebrow="Our Core Values"
+        title="We are committed of doing things differently and focusing on performance."
         invert
       >
         <p>
-          We are a group of like-minded people who share the same core values.
+        Our strength comes from our collaborative approach, where open communication is key. We are a tight-knit group that shares these core values:
         </p>
       </SectionIntro>
       <Container className="mt-16">
         <GridList>
-          <GridListItem title="Loyalty" invert>
+          <GridListItem title="Loyalty & Trust" invert>
             Our team has been with us since the beginning because none of them
             are allowed to have LinkedIn profiles.
           </GridListItem>
-          <GridListItem title="Trust" invert>
+          <GridListItem title="Passion for our work" invert>
             We don’t care when our team works just as long as they are working
             every waking second.
           </GridListItem>
-          <GridListItem title="Compassion" invert>
+          <GridListItem title="Performance" invert>
             You never know what someone is going through at home and we make
             sure to never find out.
           </GridListItem>
@@ -119,6 +119,7 @@ function Team() {
   return (
     <Container className="mt-24 sm:mt-32 lg:mt-40">
       <div className="space-y-24">
+      <h2  className="mt-12 font-display text-3xl font-medium tracking-tight text-neutral-950 sm:text-4xl">The Team</h2>
         {team.map((group) => (
           <FadeInStagger key={group.title}>
             <Border as={FadeIn} />
@@ -177,26 +178,24 @@ export default async function About() {
     <>
       <PageIntro eyebrow="About us" title="Our strength is collaboration">
         <p>
-          We believe that our strength lies in our collaborative approach, which
-          puts our clients at the center of everything we do.
+        We believe that the strength of our company lies in our collaborative approach and open communication.
         </p>
         <div className="mt-10 max-w-2xl space-y-6 text-base">
           <p>
-            Studio was started by three friends who noticed that developer
-            studios were charging clients double what an in-house team would
-            cost. Since the beginning, we have been committed to doing things
-            differently by charging triple instead.
+            Our story began in 2018 when two friends, Dragos and Madalin, who met in Gibraltar and shared a passion for technology. What began as a hobby quickly evolved into a thriving software company as more talented individuals joined our team.
           </p>
-          <p>
-            At Studio, we’re more than just colleagues — we’re a family. This
-            means we pay very little and expect people to work late. We want our
-            employees to bring their whole selves to work. In return, we just
-            ask that they keep themselves there until at least 6:30pm.
-          </p>
+          <h2 className="mt-2 font-display text-3xl font-medium tracking-tight text-neutral-950 sm:text-4xl">Our Culture</h2>
+              <p>We foster a culture that strikes a balance between pursuing our passion for technology and maintaining a healthy life outside of work. While we are dedicated professionals, we are also a family that supports one another.</p>
+
+              <h2  className="mt-12 font-display text-3xl font-medium tracking-tight text-neutral-950 sm:text-4xl">Our Approach</h2>
+              <p>True excellence is achieved through teamwork, knowledge-sharing, and creative problem-solving. We embrace innovation and continuous improvement to stay ahead of the curve. Our goal is to provide exceptional software solutions that exceed client expectations through our expertise and commitment to quality.</p>
         </div>
       </PageIntro>
 
       <Culture />
+
+      
+
 
       <Team />
 
