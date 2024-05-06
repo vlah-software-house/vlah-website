@@ -13,7 +13,7 @@ export function ContactSection() {
               Tell us about your project
             </h2>
             <div className="mt-6 flex">
-              <Button href="/contact" invert>
+              <Button className='w-full sm:w-64 py-4 text-lg justify-center' href="/contact" invert>
                 Get in touch
               </Button>
             </div>
