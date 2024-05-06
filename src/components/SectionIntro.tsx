@@ -37,18 +37,18 @@ export function SectionIntro({
               <span className="sr-only"> - </span>
             </>
           )}
-          <span
-            className={clsx(
-              'block font-display tracking-tight [text-wrap:balance]',
-              smaller
-                ? 'text-2xl font-semibold'
-                : 'text-4xl font-medium sm:text-5xl',
-              invert ? 'text-white' : 'text-neutral-950',
-            )}
-          >
-            {title}
-          </span>
+          <span className={clsx(
+                  'block font-display tracking-tight [text-wrap:balance]',
+                  smaller
+                    ? 'text-2xl font-semibold'
+                    : 'text-4xl font-medium sm:text-5xl',
+                  invert ? 'text-white' : 'text-neutral-950',
+                )}
+                dangerouslySetInnerHTML={{ __html: title }}
+              >
+            </span>
         </h2>
+
         {children && (
           <div
             className={clsx(

@@ -74,13 +74,11 @@ function CaseStudies({
   return (
     <>
       <SectionIntro
-        title="Harnessing technology for a brighter future"
+        title="<span class='text-red-600 '>Real Results:</span> Inspiring Case Studies"
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          We believe technology is the answer to the world’s greatest
-          challenges. It’s also the cause, so we find ourselves in bit of a
-          catch 22 situation.
+        Explore our diverse case studies that showcase how our strategic solutions have transformed businesses across various industries. We highlight the challenges, solutions, and outstanding results we delivered for clients.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -88,17 +86,12 @@ function CaseStudies({
           {caseStudies.map((caseStudy) => (
             <FadeIn key={caseStudy.href} className="flex">
               <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8">
-                <h3>
-                  <Link href={caseStudy.href}>
+                <div>
+                  <Link title={caseStudy.title} href={caseStudy.href}>
                     <span className="absolute inset-0 rounded-3xl" />
-                    <Image
-                      src={caseStudy.logo}
-                      alt={caseStudy.client}
-                      className="h-16 w-16"
-                      unoptimized
-                    />
+                    <span className='sr-only'>{caseStudy.title}</span>
                   </Link>
-                </h3>
+                </div>
                 <p className="mt-6 flex gap-x-2 text-sm text-neutral-950">
                   <time
                     dateTime={caseStudy.date.split('-')[0]}
@@ -111,9 +104,9 @@ function CaseStudies({
                   </span>
                   <span>Case study</span>
                 </p>
-                <p className="mt-6 font-display text-2xl font-semibold text-neutral-950">
+                <h3 className="mt-6 font-display text-2xl font-semibold text-neutral-950">
                   {caseStudy.title}
-                </p>
+                </h3>
                 <p className="mt-4 text-base text-neutral-600">
                   {caseStudy.description}
                 </p>
@@ -131,7 +124,7 @@ function Services() {
     <>
       <SectionIntro
         eyebrow="Services"
-        title="We help you identify, explore and capitalize on new opportunities."
+        title="We help you <span class='text-red-600'>identify</span>, explore and capitalize on <span class='text-red-600'>new opportunities.</span>"
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
@@ -152,23 +145,23 @@ function Services() {
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
             <ListItem title="Development">
             We build custom websites, mobile apps for iOS and Android, online stores, and tailor-made software solutions from scratch. We utilize the latest technologies to create powerful digital products that meet your unique business requirements.
-            <Link className='block mt-2 text-indigo-500' href="/" title="Discover our Development Services">Discover our Development Services <ArrowTopRightOnSquareIcon className="w-4 h-4 inline-block relative -mt-1" /> </Link>
+            <Link className='block mt-2 text-red-500' href="/" title="Discover our Development Services">Discover our Development Services <ArrowTopRightOnSquareIcon className="w-4 h-4 inline-block relative -mt-1" /> </Link>
             </ListItem>
             <ListItem title="Infrastructure / DevOps">
             We provide reliable hosting solutions and proactive maintenance to keep your websites and applications running smoothly. Our DevOps team also sets up automated deployment pipelines, manages cloud infrastructure, and optimizes performance.
-            <Link className='block mt-2 text-indigo-500' href="/" title="Level Up Your Infrastructure Capabilities">Level Up Your Infrastructure Capabilities <ArrowTopRightOnSquareIcon className="w-4 h-4 inline-block relative -mt-1" /> </Link>
+            <Link className='block mt-2 text-red-500' href="/" title="Level Up Your Infrastructure Capabilities">Level Up Your Infrastructure Capabilities <ArrowTopRightOnSquareIcon className="w-4 h-4 inline-block relative -mt-1" /> </Link>
             </ListItem>
             <ListItem title="Customer Experience / Personalization">
             We help businesses enhance their customer’s entire online journey through strategic personalization, user experience design, and data-driven insights. Our services include user research, customer journey mapping, A/B testing, behavior analysis, and implementing personalized content and product recommendations.
-            <Link className='block mt-2 text-indigo-500' href="/" title="Dive Into Tailored Customer Journeys">Dive Into Tailored Customer Journeys <ArrowTopRightOnSquareIcon className="w-4 h-4 inline-block relative -mt-1" /> </Link>
+            <Link className='block mt-2 text-red-500' href="/" title="Dive Into Tailored Customer Journeys">Dive Into Tailored Customer Journeys <ArrowTopRightOnSquareIcon className="w-4 h-4 inline-block relative -mt-1" /> </Link>
             </ListItem>
             <ListItem title="Digital Marketing">
             Our digital marketing experts utilize a wide array of tactics to increase your online visibility, website traffic, and sales. This includes search engine optimization (SEO), pay-per-click advertising (Google Ads, Facebook Ads), email marketing, content creation, influencer marketing, and more.
-            <Link className='block mt-2 text-indigo-500' href="/" title="Explore Digital Marketing Solutions">Explore Digital Marketing Solutions <ArrowTopRightOnSquareIcon className="w-4 h-4 inline-block relative -mt-1" /> </Link>
+            <Link className='block mt-2 text-red-500' href="/" title="Explore Digital Marketing Solutions">Explore Digital Marketing Solutions <ArrowTopRightOnSquareIcon className="w-4 h-4 inline-block relative -mt-1" /> </Link>
             </ListItem>
             <ListItem title="Testing">
             To ensure flawless user experiences, our quality assurance team conducts rigorous testing of websites and applications. This covers manual testing across different devices and browsers, as well as automated testing for functionality, performance, security, and accessibility compliance.
-            <Link className='block mt-2 text-indigo-500' href="/" title="Learn more about our testing capabilities">Learn more about our testing capabilities <ArrowTopRightOnSquareIcon className="w-4 h-4 inline-block relative -mt-1" /> </Link>
+            <Link className='block mt-2 text-red-500' href="/" title="Learn more about our testing capabilities">Learn more about our testing capabilities <ArrowTopRightOnSquareIcon className="w-4 h-4 inline-block relative -mt-1" /> </Link>
             </ListItem>
           </List>
         </div>
@@ -192,7 +185,7 @@ export default async function Home() {
           <div className='pt-10  md:pt-56 col-span-12 md:col-span-8'>
             <div className='flex items-center'>
               <h1 className="min-w-60 sm:min-w-96 font-display text-3xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-5xl md:text-6xl">
-              Creative People, Performance-Driven Results
+              Creative People, <span className='text-red-600'>Performance</span> Driven Results
               </h1>
               <Image src={imageHero} alt="alt" className='object-left-top object-cover h-[14rem] sm:h-[26rem] relative -ml-4  md:hidden' />
             </div>
@@ -214,14 +207,10 @@ export default async function Home() {
 
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: 'Phobia', logo: logoPhobiaDark }}
+        client={{ name: 'Stillbag', logo: logoStillbag }}
       >
-        The team at Studio went above and beyond with our onboarding, even
-        finding a way to access the user’s microphone without triggering one of
-        those annoying permission dialogs.
+        Our online store suffered from outdated tech and poor performance. Vlah Software House rebuilt our infrastructure, <span className='text-red-500'>boosting performance by 200% with instant page loads</span>. They modernized our platform, cleaned our code, and revived our business. We’re thriving thanks to their expertise.
       </Testimonial>
-
-      
 
       <ContactSection />
     </>
