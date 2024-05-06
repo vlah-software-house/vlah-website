@@ -70,12 +70,12 @@ function Header({
           onMouseLeave={() => setLogoHovered(false)}
         >
           <Logo
-            className="h-10"
+            className="h-8 sm:h-10"
             invert={invert}
             filled={logoHovered}
           />
         </Link>
-        <div className="flex items-center gap-x-8">
+        <div className="flex items-center gap-x-4 sm:gap-x-8">
           <Button href="/contact" invert={invert}>
             Contact us
           </Button>
@@ -178,7 +178,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
     <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
       <header>
         <div
-          className="absolute left-0 right-0 top-2 z-40 pt-14"
+          className="absolute left-0 right-0 top-2 z-40 pt-7 md:pt-14"
           aria-hidden={expanded ? 'true' : undefined}
           // @ts-ignore (https://github.com/facebook/react/issues/17157)
           inert={expanded ? '' : undefined}

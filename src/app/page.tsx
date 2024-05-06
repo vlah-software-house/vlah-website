@@ -18,11 +18,16 @@ import logoNorthAdventures from '@/images/clients/north-adventures/logo-light.sv
 import logoPhobiaDark from '@/images/clients/phobia/logo-dark.svg'
 import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
 import logoUnseal from '@/images/clients/unseal/logo-light.svg'
+import logoStillbag from '@/images/clients/stillbag/stillbag.png'
 import imageLaptop from '@/images/laptop.jpg'
+import imageHero from '@/images/hero.png'
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
+
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 
+
 const clients = [
-  ['Phobia', logoPhobiaLight],
+  ['Stillbag', logoStillbag],
   ['Family Fund', logoFamilyFund],
   ['Unseal', logoUnseal],
   ['Mail Smirk', logoMailSmirk],
@@ -34,7 +39,7 @@ const clients = [
 
 function Clients() {
   return (
-    <div className="mt-24 rounded-4xl bg-neutral-950 py-20 sm:mt-32 sm:py-32 lg:mt-56">
+    <div className="mt-24  bg-neutral-950 py-20 sm:mt-32 sm:py-32 lg:mt-56">
       <Container>
         <FadeIn className="flex items-center gap-x-8">
           <h2 className="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
@@ -126,18 +131,17 @@ function Services() {
     <>
       <SectionIntro
         eyebrow="Services"
-        title="We help you identify, explore and respond to new opportunities."
+        title="We help you identify, explore and capitalize on new opportunities."
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          As long as those opportunities involve giving us money to re-purpose
-          old projects — we can come up with an endless number of those.
+        Our innovative solutions are tailored to your unique needs, driving growth and success for your business.
         </p>
       </SectionIntro>
       <Container className="mt-16">
         <div className="lg:flex lg:items-center lg:justify-end">
           <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
-            <FadeIn className="w-[33.75rem] flex-none lg:w-[45rem]">
+            <FadeIn className="w-[33.75rem] flex-none lg:w-[60rem]">
               <StylizedImage
                 src={imageLaptop}
                 sizes="(min-width: 1024px) 41rem, 31rem"
@@ -146,24 +150,25 @@ function Services() {
             </FadeIn>
           </div>
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
-            <ListItem title="Web development">
-              We specialise in crafting beautiful, high quality marketing pages.
-              The rest of the website will be a shell that uses lorem ipsum
-              everywhere.
+            <ListItem title="Development">
+            We build custom websites, mobile apps for iOS and Android, online stores, and tailor-made software solutions from scratch. We utilize the latest technologies to create powerful digital products that meet your unique business requirements.
+            <Link className='block mt-2 text-indigo-500' href="/" title="Discover our Development Services">Discover our Development Services <ArrowTopRightOnSquareIcon className="w-4 h-4 inline-block relative -mt-1" /> </Link>
             </ListItem>
-            <ListItem title="Application development">
-              We have a team of skilled developers who are experts in the latest
-              app frameworks, like Angular 1 and Google Web Toolkit.
+            <ListItem title="Infrastructure / DevOps">
+            We provide reliable hosting solutions and proactive maintenance to keep your websites and applications running smoothly. Our DevOps team also sets up automated deployment pipelines, manages cloud infrastructure, and optimizes performance.
+            <Link className='block mt-2 text-indigo-500' href="/" title="Level Up Your Infrastructure Capabilities">Level Up Your Infrastructure Capabilities <ArrowTopRightOnSquareIcon className="w-4 h-4 inline-block relative -mt-1" /> </Link>
             </ListItem>
-            <ListItem title="E-commerce">
-              We are at the forefront of modern e-commerce development. Which
-              mainly means adding your logo to the Shopify store template we’ve
-              used for the past six years.
+            <ListItem title="Customer Experience / Personalization">
+            We help businesses enhance their customer’s entire online journey through strategic personalization, user experience design, and data-driven insights. Our services include user research, customer journey mapping, A/B testing, behavior analysis, and implementing personalized content and product recommendations.
+            <Link className='block mt-2 text-indigo-500' href="/" title="Dive Into Tailored Customer Journeys">Dive Into Tailored Customer Journeys <ArrowTopRightOnSquareIcon className="w-4 h-4 inline-block relative -mt-1" /> </Link>
             </ListItem>
-            <ListItem title="Custom content management">
-              At Studio we understand the importance of having a robust and
-              customised CMS. That’s why we run all of our client projects out
-              of a single, enormous Joomla instance.
+            <ListItem title="Digital Marketing">
+            Our digital marketing experts utilize a wide array of tactics to increase your online visibility, website traffic, and sales. This includes search engine optimization (SEO), pay-per-click advertising (Google Ads, Facebook Ads), email marketing, content creation, influencer marketing, and more.
+            <Link className='block mt-2 text-indigo-500' href="/" title="Explore Digital Marketing Solutions">Explore Digital Marketing Solutions <ArrowTopRightOnSquareIcon className="w-4 h-4 inline-block relative -mt-1" /> </Link>
+            </ListItem>
+            <ListItem title="Testing">
+            To ensure flawless user experiences, our quality assurance team conducts rigorous testing of websites and applications. This covers manual testing across different devices and browsers, as well as automated testing for functionality, performance, security, and accessibility compliance.
+            <Link className='block mt-2 text-indigo-500' href="/" title="Learn more about our testing capabilities">Learn more about our testing capabilities <ArrowTopRightOnSquareIcon className="w-4 h-4 inline-block relative -mt-1" /> </Link>
             </ListItem>
           </List>
         </div>
@@ -182,18 +187,26 @@ export default async function Home() {
 
   return (
     <>
-      <Container className="mt-24 sm:mt-32 md:mt-56">
-        <FadeIn className="max-w-3xl">
-          <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
-            Award-winning development studio.
-          </h1>
-          <p className="mt-6 text-xl text-neutral-600">
-            We are a development studio working at the intersection of design
-            and technology. It’s a really busy intersection though — a lot of
-            our staff have been involved in hit and runs.
-          </p>
+      <Container className='border-black border-b-2 '>
+        <FadeIn className="max-w-full grid grid-cols-12">
+          <div className='pt-10  md:pt-56 col-span-12 md:col-span-8'>
+            <div className='flex items-center'>
+              <h1 className="min-w-60 sm:min-w-96 font-display text-3xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-5xl md:text-6xl">
+              Creative People, Performance-Driven Results
+              </h1>
+              <Image src={imageHero} alt="alt" className='object-left-top object-cover h-[14rem] sm:h-[26rem] relative -ml-4  md:hidden' />
+            </div>
+            <p className="-mx-6 md:mt-6 p-6 bg-black md:bg-transparent text-white  text-md md:text-xl md:text-neutral-600">
+            Blending creativity with technical expertise, our development studio sits at the crossroads of design and technology. With a performance-driven approach and a marketing team bearing top accreditations, we elevate brands worldwide.
+            </p>
+          </div>
+          <div className='md:col-span-4 hidden md:block'>
+            <Image src={imageHero} alt="alt" className=" object-cover" />
+          </div>
         </FadeIn>
       </Container>
+
+      <Services />
 
       <Clients />
 
@@ -208,7 +221,7 @@ export default async function Home() {
         those annoying permission dialogs.
       </Testimonial>
 
-      <Services />
+      
 
       <ContactSection />
     </>
