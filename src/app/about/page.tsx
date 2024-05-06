@@ -35,16 +35,13 @@ function Culture() {
       <Container className="mt-16">
         <GridList>
           <GridListItem title="Loyalty & Trust" invert>
-            Our team has been with us since the beginning because none of them
-            are allowed to have LinkedIn profiles.
+            We cultivate an environment of unwavering loyalty and trust among our team members and with our clients.
           </GridListItem>
           <GridListItem title="Passion for our work" invert>
-            We don’t care when our team works just as long as they are working
-            every waking second.
+            Our genuine passion for technology and software development fuels our drive for excellence.
           </GridListItem>
           <GridListItem title="Performance" invert>
-            You never know what someone is going through at home and we make
-            sure to never find out.
+            Committed to delivering high-performance, high-quality solutions through our expertise and dedication.
           </GridListItem>
         </GridList>
       </Container>
@@ -193,9 +190,6 @@ export default async function About() {
       </PageIntro>
 
       <Culture />
-
-      
-
 
       <Team />
 
