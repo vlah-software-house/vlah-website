@@ -9,16 +9,14 @@ import { List, ListItem } from '@/components/List'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StylizedImage } from '@/components/StylizedImage'
 import { Testimonial } from '@/components/Testimonial'
-import logoBrightPath from '@/images/clients/bright-path/logo-light.svg'
-import logoFamilyFund from '@/images/clients/family-fund/logo-light.svg'
-import logoGreenLife from '@/images/clients/green-life/logo-light.svg'
-import logoHomeWork from '@/images/clients/home-work/logo-light.svg'
-import logoMailSmirk from '@/images/clients/mail-smirk/logo-light.svg'
+import logoExp from '@/images/clients/exp/exp.jpg'
+import logoGama from '@/images/clients/gama/gama.jpg'
+import logoVisionHome from '@/images/clients/visionhome/visionhome.jpg'
+import logoEscudo from '@/images/clients/escudo/escudo.jpg'
+import logoPeekCloppenburg from '@/images/clients/peek-cloppenburg/peek-cloppenburg.jpg'
 import logoNorthAdventures from '@/images/clients/north-adventures/logo-light.svg'
-import logoPhobiaDark from '@/images/clients/phobia/logo-dark.svg'
-import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
-import logoUnseal from '@/images/clients/unseal/logo-light.svg'
-import logoStillbag from '@/images/clients/stillbag/stillbag.png'
+import logoAutodoc from '@/images/clients/autodoc/autodoc.jpg'
+import logoStillbag from '@/images/clients/stillbag/stillbag.jpg'
 import imageLaptop from '@/images/laptop.jpg'
 import imageHero from '@/images/hero.png'
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
@@ -27,14 +25,13 @@ import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 
 
 const clients = [
+  ['Autodoc', logoAutodoc],
   ['Stillbag', logoStillbag],
-  ['Family Fund', logoFamilyFund],
-  ['Unseal', logoUnseal],
-  ['Mail Smirk', logoMailSmirk],
-  ['Home Work', logoHomeWork],
-  ['Green Life', logoGreenLife],
-  ['Bright Path', logoBrightPath],
-  ['North Adventures', logoNorthAdventures],
+  ['Exp', logoExp],
+  ['Gama', logoGama],
+  ['Peek & Cloppenburg.', logoPeekCloppenburg],
+  ['Escudo', logoEscudo],
+  ['VisionHome', logoVisionHome],
 ]
 
 function Clients() {
@@ -50,12 +47,12 @@ function Clients() {
         <FadeInStagger faster>
           <ul
             role="list"
-            className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4"
+            className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-5"
           >
             {clients.map(([client, logo]) => (
               <li key={client}>
                 <FadeIn>
-                  <Image src={logo} alt={client} unoptimized />
+                  <Image src={logo} alt={client} className='bg-white rounded-sm h-12 w-auto' unoptimized />
                 </FadeIn>
               </li>
             ))}
