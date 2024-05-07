@@ -56,9 +56,7 @@ function CaseStudies({
                       {caseStudy.service}
                     </p>
                     <p className="text-sm text-neutral-950 lg:mt-2">
-                      <time dateTime={caseStudy.date}>
-                        {formatDate(caseStudy.date)}
-                      </time>
+                        {caseStudy.date}
                     </p>
                   </div>
                 </div>
