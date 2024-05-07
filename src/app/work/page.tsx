@@ -10,14 +10,15 @@ import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
 import { Testimonial } from '@/components/Testimonial'
-import logoBrightPath from '@/images/clients/bright-path/logo-dark.svg'
-import logoFamilyFund from '@/images/clients/family-fund/logo-dark.svg'
-import logoGreenLife from '@/images/clients/green-life/logo-dark.svg'
-import logoHomeWork from '@/images/clients/home-work/logo-dark.svg'
+import logoExp from '@/images/clients/exp/exp.jpg'
+import logoGama from '@/images/clients/gama/gama.jpg'
+import logoVisionHome from '@/images/clients/visionhome/visionhome.jpg'
+import logoEscudo from '@/images/clients/escudo/escudo.jpg'
+import logoPeekCloppenburg from '@/images/clients/peek-cloppenburg/peek-cloppenburg.jpg'
+import logoAutodoc from '@/images/clients/autodoc/autodoc.jpg'
+import logoStillbag from '@/images/clients/stillbag/stillbag.jpg'
 import logoMailSmirk from '@/images/clients/mail-smirk/logo-dark.svg'
-import logoNorthAdventures from '@/images/clients/north-adventures/logo-dark.svg'
-import logoPhobia from '@/images/clients/phobia/logo-dark.svg'
-import logoUnseal from '@/images/clients/unseal/logo-dark.svg'
+
 import { formatDate } from '@/lib/formatDate'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 
@@ -97,14 +98,13 @@ function CaseStudies({
 }
 
 const clients = [
-  ['Phobia', logoPhobia],
-  ['Family Fund', logoFamilyFund],
-  ['Unseal', logoUnseal],
-  ['Mail Smirk', logoMailSmirk],
-  ['Home Work', logoHomeWork],
-  ['Green Life', logoGreenLife],
-  ['Bright Path', logoBrightPath],
-  ['North Adventures', logoNorthAdventures],
+  ['Autodoc', logoAutodoc],
+  ['Stillbag', logoStillbag],
+  ['Exp', logoExp],
+  ['Gama', logoGama],
+  ['Peek & Cloppenburg', logoPeekCloppenburg],
+  ['Escudo', logoEscudo],
+  ['VisionHome', logoVisionHome],
 ]
 
 function Clients() {
@@ -122,10 +122,10 @@ function Clients() {
           className="grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-3 lg:grid-cols-4"
         >
           {clients.map(([client, logo]) => (
-            <li key={client} className="group">
+            <li key={String(client)} className="group">
               <FadeIn className="overflow-hidden">
                 <Border className="pt-12 group-[&:nth-child(-n+2)]:-mt-px sm:group-[&:nth-child(3)]:-mt-px lg:group-[&:nth-child(4)]:-mt-px">
-                  <Image src={logo} alt={client} unoptimized />
+                  <Image src={logo} alt={String(client)} unoptimized />
                 </Border>
               </FadeIn>
             </li>
