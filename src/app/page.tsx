@@ -18,6 +18,12 @@ import logoEscudo from '@/images/clients/escudo/escudo.jpg'
 import logoPeekCloppenburg from '@/images/clients/peek-cloppenburg/peek-cloppenburg.jpg'
 import logoAutodoc from '@/images/clients/autodoc/autodoc.jpg'
 import logoStillbag from '@/images/clients/stillbag/stillbag.jpg'
+import logoEpneu from '@/images/clients/epneu/epneu.jpg'
+import logoJantaro from '@/images/clients/jantaro/jantaro.jpg'
+import logoInterPneu from '@/images/clients/interpneu/interpneu.jpg'
+import logoSmashcasino from '@/images/clients/smashcasino/smashcasino.jpg'
+import logoCrazyTimeStats from '@/images/clients/crazytimestats/crazytimestats.jpg'
+import logoWheelieBinStorage from '@/images/clients/wheeliebinstorage/wheeliebinstorage.jpg'
 
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
 
@@ -25,13 +31,19 @@ import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 
 
 const clients = [
-  ['Autodoc', logoAutodoc],
   ['Stillbag', logoStillbag],
   ['Exp', logoExp],
-  ['Gama', logoGama],
   ['Peek & Cloppenburg', logoPeekCloppenburg],
+  ['Gama', logoGama],
   ['Escudo', logoEscudo],
+  ['Autodoc', logoAutodoc],
+  ['E-pneu', logoEpneu],
+  ['Janta.ro', logoJantaro],
+  ['InterPneu', logoInterPneu],
   ['VisionHome', logoVisionHome],
+  ['Smash Casino', logoSmashcasino],
+  ['Crazy Time Stats', logoCrazyTimeStats],
+  ['Wheelie Bin Storage', logoWheelieBinStorage],
 ]
 
 function Clients() {
@@ -40,7 +52,7 @@ function Clients() {
       <Container>
         <FadeIn className="flex items-center gap-x-8">
           <h2 className="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
-            We’ve worked with hundreds of amazing people.
+            Some of our clients.
           </h2>
           <div className="h-px flex-auto bg-neutral-800" />
         </FadeIn>

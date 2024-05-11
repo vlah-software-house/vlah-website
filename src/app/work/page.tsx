@@ -17,6 +17,12 @@ import logoEscudo from '@/images/clients/escudo/escudo.jpg'
 import logoPeekCloppenburg from '@/images/clients/peek-cloppenburg/peek-cloppenburg.jpg'
 import logoAutodoc from '@/images/clients/autodoc/autodoc.jpg'
 import logoStillbag from '@/images/clients/stillbag/stillbag.jpg'
+import logoEpneu from '@/images/clients/epneu/epneu.jpg'
+import logoJantaro from '@/images/clients/jantaro/jantaro.jpg'
+import logoInterPneu from '@/images/clients/interpneu/interpneu.jpg'
+import logoSmashcasino from '@/images/clients/smashcasino/smashcasino.jpg'
+import logoCrazyTimeStats from '@/images/clients/crazytimestats/crazytimestats.jpg'
+import logoWheelieBinStorage from '@/images/clients/wheeliebinstorage/wheeliebinstorage.jpg'
 import logoMailSmirk from '@/images/clients/mail-smirk/logo-dark.svg'
 
 import { formatDate } from '@/lib/formatDate'
@@ -44,7 +50,7 @@ function CaseStudies({
                     <Image
                       src={caseStudy.logo}
                       alt=""
-                      className="h-16 w-16 flex-none"
+                      className='bg-white rounded-sm h-12 w-auto flex-none'
                       unoptimized
                     />
                     <h3 className="mt-6 text-sm font-semibold text-neutral-950 sm:mt-0 lg:mt-8">
@@ -96,13 +102,19 @@ function CaseStudies({
 }
 
 const clients = [
-  ['Autodoc', logoAutodoc],
   ['Stillbag', logoStillbag],
   ['Exp', logoExp],
-  ['Gama', logoGama],
   ['Peek & Cloppenburg', logoPeekCloppenburg],
+  ['Gama', logoGama],
   ['Escudo', logoEscudo],
+  ['Autodoc', logoAutodoc],
+  ['E-pneu', logoEpneu],
+  ['Janta.ro', logoJantaro],
+  ['InterPneu', logoInterPneu],
   ['VisionHome', logoVisionHome],
+  ['Smash Casino', logoSmashcasino],
+  ['Crazy Time Stats', logoCrazyTimeStats],
+  ['Wheelie Bin Storage', logoWheelieBinStorage],
 ]
 
 function Clients() {
@@ -123,7 +135,7 @@ function Clients() {
             <li key={String(client)} className="group">
               <FadeIn className="overflow-hidden">
                 <Border className="pt-12 group-[&:nth-child(-n+2)]:-mt-px sm:group-[&:nth-child(3)]:-mt-px lg:group-[&:nth-child(4)]:-mt-px">
-                  <Image src={logo} alt={String(client)} unoptimized />
+                  <Image src={logo} alt={String(client)} className='bg-white rounded-sm h-12 w-auto' unoptimized />
                 </Border>
               </FadeIn>
             </li>
