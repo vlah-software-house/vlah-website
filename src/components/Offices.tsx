@@ -47,9 +47,9 @@ export function Offices({
       </li>
       <li>
         <Office name="USA" invert={invert}>
-          200 S Biscayne Blvd
+          555 NE 30th St
           <br />
-          34324, Miami, FL
+          33137, Miami, FL
         </Office>
       </li>
     </ul>
