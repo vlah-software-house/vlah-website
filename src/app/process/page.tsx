@@ -144,7 +144,7 @@ function Comercial() {
           Tell us about your project
         </h3>
         <div className="mt-6 flex">
-          <Button className='w-full bg-gray-900 text-white hover:bg-gray-700 sm:w-64 py-4 text-lg justify-center' href="/contact" invert>
+          <Button className='w-full sm:w-64 py-4 text-lg justify-center' href="/contact">
             Describe your project
           </Button>
         </div>
