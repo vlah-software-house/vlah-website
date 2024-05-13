@@ -14,6 +14,8 @@ import { TagList, TagListItem } from '@/components/TagList'
 import imageLaptop from '@/images/laptop.jpg'
 import imageMeeting from '@/images/meeting.jpg'
 import imageWhiteboard from '@/images/whiteboard.jpg'
+import imageCommercial from '@/images/commercial.jpg'
+import { Button } from '@/components/Button'
 
 function Section({
   title,
@@ -133,11 +135,19 @@ function Deliver() {
 
 function Comercial() {
   return (
-    <Section title="Comercial" image={{ src: imageLaptop, shape: 1 }}>
+    <Section title="Comercial" image={{ src: imageCommercial, shape: 1 }}>
       <div className="space-y-6 text-base text-neutral-600">
         <p>
         Unlike traditional hourly billing models, we operate on an outcomes-based credit system. This approach aligns our goals directly with yours, focusing on delivering tangible value and achieving measurable results. Credits are utilized only upon successful project completion, ensuring our unwavering commitment to your satisfaction and the project&#39;s success.
         </p>
+        <h3 className="font-display text-2xl font-medium text-gray-900 [text-wrap:balance] sm:text-3xl">
+          Tell us about your project
+        </h3>
+        <div className="mt-6 flex">
+          <Button className='w-full bg-gray-900 text-white hover:bg-gray-700 sm:w-64 py-4 text-lg justify-center' href="/contact" invert>
+            Describe your project
+          </Button>
+        </div>
       </div>
     </Section>
   )
