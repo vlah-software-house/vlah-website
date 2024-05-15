@@ -64,7 +64,7 @@ const team = [
         image: { src: imageMadalin },
       },
       {
-        name: 'Madalon Ghita',
+        name: 'Madalin Ghita',
         role: 'Partner & Marketing Director',
         image: { src: imageGMadalin },
       },
