@@ -112,8 +112,6 @@ const clients = [
   ['Janta.ro', logoJantaro],
   ['InterPneu', logoInterPneu],
   ['VisionHome', logoVisionHome],
-  ['Smash Casino', logoSmashcasino],
-  ['Crazy Time Stats', logoCrazyTimeStats],
   ['Wheelie Bin Storage', logoWheelieBinStorage],
 ]
 
