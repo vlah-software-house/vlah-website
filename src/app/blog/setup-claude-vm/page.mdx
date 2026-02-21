@@ -1,0 +1,121 @@
+import imageDragos from '@/images/team/dragos.jpeg'
+
+export const article = {
+  date: '2026-02-21',
+  title: 'One Script to Rule Them All: Automating Ubuntu VM Setup for Claude Code Sessions',
+  description:
+    'Spinning up a fresh VM for AI-assisted development means installing Docker, Go, Node.js, Python, and Claude Code — then repeating the whole ritual every time. We built setup-claude-vm.sh: a single idempotent bash script that gets any Ubuntu 24.04 machine ready for Claude coding sessions in minutes, not hours.',
+  author: {
+    name: 'Dragos Vilcu',
+    role: 'Co-Founder / CEO',
+    image: { src: imageDragos },
+  },
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+Every time we spin up a fresh cloud VM to run a Claude Code agent session, we face the same wall: no Docker, no Go, no Node.js, no Python, no Claude Code. You either spend 30 minutes running through the same manual steps, or you copy-paste a half-remembered script and pray it still works on Ubuntu 24.04.
+
+We got tired of it. So we built the fix.
+
+![](./hero.png)
+
+🚀 [View the artifact & grab the script on Claude](https://claude.ai/public/artifacts/655ba8c5-c12a-4697-a7ff-a90a67d93b03)
+
+## What is setup-claude-vm.sh?
+
+**`setup-claude-vm.sh`** is a single, self-contained bash script that configures a clean Ubuntu 24.04 LTS machine for Claude agent and AI-assisted coding sessions. It installs and wires together everything an AI coding session needs — from system packages all the way up to Claude Code itself.
+
+The key design goal: **idempotency**. You can run it on a fresh machine, or re-run it on an existing one to update everything. It detects what's already there, upgrades it, and skips what's already current. No duplicate entries, no broken state.
+
+## What Gets Installed
+
+The script handles 12 distinct setup phases in a single pass:
+
+### 1. System Packages
+Updates `apt` and installs the essentials: `build-essential`, `curl`, `git`, `jq`, `tmux`, `screen`, `vim`, and more. Runs `apt upgrade` to keep the base system current.
+
+### 2. Docker (Official Repository)
+Installs Docker CE from the official Docker repository — not the outdated `docker.io` package from Ubuntu's default repos. Adds your user to the `docker` group and enables the daemon on boot.
+
+```bash
+# Installed via official Docker APT repo
+docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+### 3 & 4. NVM + Node.js LTS
+Installs or updates **NVM** using the official installer (which safely does a `git pull` on existing installs). Then installs the latest Node.js LTS, migrating any existing global npm packages if a previous version is found.
+
+```bash
+# NVM fetches latest from GitHub releases API, then:
+nvm install --lts --reinstall-packages-from=default
+nvm alias default 'lts/*'
+```
+
+### 5 & 6. GVM + Go (Latest Stable)
+Installs **GVM** (Go Version Manager) and then fetches the latest stable Go version directly from the `go.dev` download API, installing it as binary (fast) and setting it as the default.
+
+```bash
+# Fetches latest Go version dynamically
+GO_LATEST=$(curl -fsSL 'https://go.dev/dl/?mode=json' | jq -r '.[0].version')
+gvm install "${GO_LATEST}" --binary
+gvm use "${GO_LATEST}" --default
+```
+
+### 7. uv + Python
+Installs **uv** (the blazing-fast Python package manager from Astral) and uses it to install the latest stable CPython. If uv is already present, it runs `uv self update` instead.
+
+### 8. Claude Code
+Runs the official native Claude Code installer — the Bun-based one from `claude.ai/install.sh`. If Claude Code is already installed, the installer updates it to the latest version.
+
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+### 9. Automatic Security Updates
+Configures `unattended-upgrades` for nightly, automatic security and system package updates. Auto-reboot is deliberately **disabled** — the script sets up a login notification and `.bashrc` check instead so you're prompted to reboot manually.
+
+### 10. Shell Initialisation
+Writes `/etc/profile.d/claude-tools.sh` (for login shells) and appends to `~/.bashrc` (for interactive bash, tmux, and screen panes) — both protected by idempotency markers so they're never duplicated on re-runs.
+
+### 11 & 12. Global CLAUDE.md
+Generates a comprehensive `~/.claude/CLAUDE.md` on every run. This file is picked up by Claude Code before any project-level context and documents the exact installed versions, tool locations, usage commands, and agent session best practices — all dynamically populated.
+
+## Get Up and Running in One Command
+
+```bash
+# Download and run (as a regular user with sudo, NOT root)
+curl -fsSL https://claude.ai/public/artifacts/655ba8c5-c12a-4697-a7ff-a90a67d93b03 -o setup-claude-vm.sh
+bash setup-claude-vm.sh
+```
+
+After the script finishes, three quick steps remain for the first run:
+
+```bash
+# 1. Re-login or source to activate tools in current session
+source ~/.bashrc
+
+# 2. Authenticate Claude Code
+claude auth
+
+# 3. Log out and back in for docker group to take effect
+```
+
+## Why Idempotency Matters for AI Workflows
+
+When you're running Claude Code agents on ephemeral VMs — spot instances, CI runners, or cloud dev environments — you want to declare the desired state of the machine and let the script figure out what work actually needs to be done. That's exactly what this script does.
+
+**Changed items are tracked and reported** in a summary at the end of each run, so you always know what actually changed vs. what was already current.
+
+## What's Next
+
+We use this internally at Vlah Software House every time we spin up a new agent VM. We're open-sourcing it so the wider Claude Code community can benefit too.
+
+We'd love to hear how you're using it — and what tools you'd add to the stack.
+
+- **Grab the script:** [Claude Artifact](https://claude.ai/public/artifacts/655ba8c5-c12a-4697-a7ff-a90a67d93b03)
+
+Happy Coding! 🛠️
