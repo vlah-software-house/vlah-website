@@ -14,6 +14,11 @@ import { unifiedConditional } from 'unified-conditional'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
+  // Cloudflare Workers cannot run Sharp (native binary) for on-demand image
+  // optimisation. CF_PAGES=1 is automatically set by Cloudflare Pages builds.
+  images: {
+    unoptimized: process.env.CF_PAGES === '1',
+  },
 }
 
 function remarkMDXLayout(source, metaName) {

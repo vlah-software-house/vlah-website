@@ -21,7 +21,7 @@ This is the public-facing website for **Vlah Software House**, a software develo
 | Animations | Framer Motion 10 |
 | Icons | Heroicons 2 |
 | Forms / Validation | React Server Actions + Zod |
-| Email | Nodemailer (SMTP) |
+| Email | Resend (HTTP API) |
 | Syntax Highlighting | Shiki (`css-variables` theme) |
 | Image Optimisation | Next.js Image + Sharp |
 | Analytics | Google Tag Manager (`GTM-PP5FTFPP`) |
@@ -53,7 +53,7 @@ This is the public-facing website for **Vlah Software House**, a software develo
 │   │   ├── mdx.ts            # MDX loading utilities + type definitions
 │   │   └── formatDate.ts     # Date formatting helper
 │   ├── actions/
-│   │   └── contact.tsx       # Server action for contact form (Zod + Nodemailer)
+│   │   └── contact.tsx       # Server action for contact form (Zod + Resend)
 │   ├── styles/
 │   │   ├── tailwind.css      # Tailwind entry (base/components/utilities)
 │   │   ├── base.css          # Mona Sans font-face
@@ -78,13 +78,25 @@ This is the public-facing website for **Vlah Software House**, a software develo
 ## Development Commands
 
 ```bash
-npm run dev     # Start dev server at http://localhost:3000
-npm run build   # Production build (outputs to .next/)
-npm run start   # Start production server (requires prior build)
-npm run lint    # Run ESLint (next/core-web-vitals ruleset)
+npm run dev          # Start dev server at http://localhost:3000
+npm run build        # Production build for Vercel (outputs to .next/)
+npm run start        # Start production server (requires prior build)
+npm run lint         # Run ESLint (next/core-web-vitals ruleset)
+npm run pages:build  # Build for Cloudflare Pages (outputs to .vercel/output/static/)
 ```
 
 There is **no test suite**. Validation is done via `npm run lint` and a production build check (`npm run build`).
+
+### Cloudflare Pages deployment
+
+The site deploys to both **Vercel** and **Cloudflare Pages**. The Cloudflare build uses `@cloudflare/next-on-pages` which wraps the standard Next.js build and produces Workers-compatible output.
+
+In the Cloudflare Pages dashboard configure:
+- **Build command:** `npm run pages:build`
+- **Build output directory:** `.vercel/output/static`
+- **Environment variables:** same as `.env.local` (see Contact Form section below)
+
+The `wrangler.toml` at the project root contains the runtime configuration (`nodejs_compat` compatibility flag, output directory). This file is also used by `wrangler pages dev` for local Cloudflare preview.
 
 ---
 
@@ -219,7 +231,7 @@ The MDX pipeline is configured in `next.config.mjs`:
 The contact form uses a **React Server Action** (`src/actions/contact.tsx`).
 
 - **Validation:** Zod schema requires `name`, `company`, `email` (valid email), `phone`, `message`, and `budget`.
-- **Email delivery:** Nodemailer over SMTP with `requireTLS: true`.
+- **Email delivery:** [Resend](https://resend.com) HTTP API — works in both Node.js (Vercel) and edge/serverless (Cloudflare Pages) runtimes.
 - Returns `{ success: boolean, message: string, errors: Array<{for: string, message: string}> }`.
 
 ### Required Environment Variables
@@ -227,12 +239,16 @@ The contact form uses a **React Server Action** (`src/actions/contact.tsx`).
 Create a `.env.local` file (never commit it) with:
 
 ```
-SMTP_HOST=your.smtp.host
-SMTP_PORT=587
-SENDER_EMAIL=sender@example.com
-SENDER_PASSWORD=yourpassword
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx
+SENDER_EMAIL=noreply@yourdomain.com
 RECEIVER_EMAIL=receiver@example.com
+MAILERLITE_API_KEY=your_mailerlite_key
 ```
+
+- `RESEND_API_KEY` — obtain from [resend.com](https://resend.com). The free tier covers 3 000 emails/month.
+- `SENDER_EMAIL` — must be an address on a domain **verified in your Resend account**.
+- `RECEIVER_EMAIL` — where contact form submissions are delivered.
+- `MAILERLITE_API_KEY` — used by the newsletter subscription action (`src/actions/form.tsx`).
 
 ---
 
