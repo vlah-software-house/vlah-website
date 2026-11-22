@@ -1,6 +1,15 @@
 import { type ImageProps } from 'next/image'
 import glob from 'fast-glob'
 
+// fast-glob returns files in no fixed order, so entries with the same date
+// (Escudo and Gama) are ordered by their address.
+function newestFirst(
+  a: { date: string; href: string },
+  b: { date: string; href: string },
+) {
+  return b.date.localeCompare(a.date) || a.href.localeCompare(b.href)
+}
+
 async function loadEntries<T extends { date: string }>(
   directory: string,
   metaName: string,
@@ -20,7 +29,7 @@ async function loadEntries<T extends { date: string }>(
         },
       ),
     )
-  ).sort((a, b) => b.date.localeCompare(a.date))
+  ).sort(newestFirst)
 }
 
 type ImagePropsWithOptionalAlt = Omit<ImageProps, 'alt'> & { alt?: string }

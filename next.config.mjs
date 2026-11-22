@@ -14,6 +14,18 @@ import { unifiedConditional } from 'unified-conditional'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
+  // The site is plain files: `next build` writes it to out/, and no Next.js
+  // server runs in production. The forms post to the functions in api/.
+  output: 'export',
+  images: {
+    // Vercel's own image service resizes the photos (vercel.json → images).
+    loader: 'custom',
+    loaderFile: './src/lib/imageLoader.ts',
+  },
+  env: {
+    // Set on Vercel's build machines only: a local build serves the originals.
+    VERCEL_IMAGES: process.env.VERCEL ? '1' : '',
+  },
 }
 
 function remarkMDXLayout(source, metaName) {
