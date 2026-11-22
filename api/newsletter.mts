@@ -1,5 +1,6 @@
 // POST /api/newsletter: the footer's newsletter form, which adds the address to MailerLite.
 // A Vercel Function: the site itself is static files (next.config.mjs → output: 'export').
+// The .mts extension makes it an ES module on Vercel (package.json has no "type": "module").
 //
 // Environment: MAILERLITE_API_KEY. Without it the form answers with an error.
 

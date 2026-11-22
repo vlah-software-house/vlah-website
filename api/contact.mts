@@ -1,5 +1,6 @@
 // POST /api/contact: the contact page's "Work inquiries" form.
 // A Vercel Function: the site itself is static files (next.config.mjs → output: 'export').
+// The .mts extension makes it an ES module on Vercel (package.json has no "type": "module").
 //
 // Environment: SMTP_HOST, SMTP_PORT, SENDER_EMAIL, SENDER_PASSWORD, RECEIVER_EMAIL.
 // Without all five it answers with an error and sends nothing.
