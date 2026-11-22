@@ -1,6 +1,9 @@
+// @ts-check
 // POST /api/contact: the contact page's "Work inquiries" form.
 // A Vercel Function: the site itself is static files (next.config.mjs → output: 'export').
-// The .mts extension makes it an ES module on Vercel (package.json has no "type": "module").
+// Plain JavaScript in an .mjs file, so Vercel runs it as an ES module (package.json
+// has no "type": "module", and Vercel doesn't build .mts files). TypeScript still
+// checks it, through @ts-check and the JSDoc types.
 //
 // Environment: SMTP_HOST, SMTP_PORT, SENDER_EMAIL, SENDER_PASSWORD, RECEIVER_EMAIL.
 // Without all five it answers with an error and sends nothing.
@@ -8,14 +11,14 @@
 import nodemailer from 'nodemailer'
 import { z } from 'zod'
 
-const BUDGETS = [
+const BUDGETS = /** @type {const} */ ([
   '$1K – $10K',
   '$10K – $25K',
   '$25K – $50K',
   '$50K – $100K',
   '$100K – $150K',
   'More than $150K',
-] as const
+])
 
 const contactSchema = z.object({
   name: z
@@ -46,17 +49,24 @@ const contactSchema = z.object({
   budget: z.enum(BUDGETS, { message: 'Budget is required' }),
 })
 
-type FieldError = { for: string; message: string }
-type ContactReply = { success: boolean; message: string; errors: FieldError[] }
+/** @typedef {{ for: string, message: string }} FieldError */
+/** @typedef {{ success: boolean, message: string, errors: FieldError[] }} ContactReply */
 
 const FAILED = 'Something went wrong. Try again.'
 
-function reply(status: number, body: ContactReply, headers?: HeadersInit) {
+/**
+ * @param {number} status
+ * @param {ContactReply} body
+ * @param {HeadersInit} [headers]
+ */
+function reply(status, body, headers) {
   return Response.json(body, { status, headers })
 }
 
-function parseContact(form: FormData) {
-  const field = (name: string) => {
+/** @param {FormData} form */
+function parseContact(form) {
+  /** @param {string} name */
+  const field = (name) => {
     const value = form.get(name)
     return typeof value === 'string' ? value : ''
   }
@@ -71,7 +81,11 @@ function parseContact(form: FormData) {
 }
 
 export default {
-  async fetch(request: Request): Promise<Response> {
+  /**
+   * @param {Request} request
+   * @returns {Promise<Response>}
+   */
+  async fetch(request) {
     if (request.method !== 'POST') {
       return reply(
         405,
@@ -80,7 +94,8 @@ export default {
       )
     }
 
-    let form: FormData
+    /** @type {FormData} */
+    let form
     try {
       form = await request.formData()
     } catch {

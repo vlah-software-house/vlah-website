@@ -1,6 +1,9 @@
+// @ts-check
 // POST /api/newsletter: the footer's newsletter form, which adds the address to MailerLite.
 // A Vercel Function: the site itself is static files (next.config.mjs → output: 'export').
-// The .mts extension makes it an ES module on Vercel (package.json has no "type": "module").
+// Plain JavaScript in an .mjs file, so Vercel runs it as an ES module (package.json
+// has no "type": "module", and Vercel doesn't build .mts files). TypeScript still
+// checks it, through @ts-check and the JSDoc types.
 //
 // Environment: MAILERLITE_API_KEY. Without it the form answers with an error.
 
@@ -11,20 +14,25 @@ const NEWSLETTER_GROUP = '121248322928247905'
 
 const emailSchema = z.string().trim().max(320).email()
 
-type NewsletterReply = {
-  success?: string
-  message: string
-  errors?: Record<string, string[]>
-}
+/** @typedef {{ success?: string, message: string, errors?: Record<string, string[]> }} NewsletterReply */
 
 const FAILED = 'Something went wrong. Try again.'
 
-function reply(status: number, body: NewsletterReply, headers?: HeadersInit) {
+/**
+ * @param {number} status
+ * @param {NewsletterReply} body
+ * @param {HeadersInit} [headers]
+ */
+function reply(status, body, headers) {
   return Response.json(body, { status, headers })
 }
 
 export default {
-  async fetch(request: Request): Promise<Response> {
+  /**
+   * @param {Request} request
+   * @returns {Promise<Response>}
+   */
+  async fetch(request) {
     if (request.method !== 'POST') {
       return reply(
         405,
@@ -33,7 +41,8 @@ export default {
       )
     }
 
-    let form: FormData
+    /** @type {FormData} */
+    let form
     try {
       form = await request.formData()
     } catch {
@@ -62,10 +71,10 @@ export default {
         },
         body: JSON.stringify({ email: email.data, groups: [NEWSLETTER_GROUP] }),
       })
-      const data = (await response.json().catch(() => ({}))) as {
-        message?: string
-        errors?: Record<string, string[]>
-      }
+      const data =
+        /** @type {{ message?: string, errors?: Record<string, string[]> }} */ (
+          await response.json().catch(() => ({}))
+        )
       if (!response.ok || data.errors) {
         // MailerLite explains a refused address ("The email must be a valid email address.").
         const refused = response.status === 422
