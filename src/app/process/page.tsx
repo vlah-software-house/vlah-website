@@ -73,7 +73,7 @@ function Discover() {
         Included in this phase
       </h3>
       <TagList className="mt-4">
-        <TagListItem>In-depth questionnairy</TagListItem>
+        <TagListItem>In-depth questionnaire</TagListItem>
         <TagListItem>Audit</TagListItem>
         <TagListItem>Data Analytics</TagListItem>
       </TagList>
@@ -118,10 +118,10 @@ function Deliver() {
       </h3>
       <List className="mt-8">
         <ListItem title="Testing">
-          Our projects always have 100% test coverage, from manual to automation testing.
+          Our projects always have 100% test coverage, from manual to automated testing.
         </ListItem>
         <ListItem title="Infrastructure">
-          Depending of the needs we can provide a cloud infrastructure or deploy on-premises.
+          Depending on your needs, we can provide cloud infrastructure or deploy on-premises.
         </ListItem>
         <ListItem title="Support">
           We offer ongoing support and maintenance services to ensure that your
@@ -133,9 +133,9 @@ function Deliver() {
 }
 
 
-function Comercial() {
+function Commercial() {
   return (
-    <Section title="Comercial" image={{ src: imageCommercial, shape: 1 }}>
+    <Section title="Commercial" image={{ src: imageCommercial, shape: 1 }}>
       <div className="space-y-6 text-base text-neutral-600">
         <p>
         Unlike traditional hourly billing models, we operate on an outcomes-based credit system. This approach aligns our goals directly with yours, focusing on delivering tangible value and achieving measurable results. Credits are utilized only upon successful project completion, ensuring our unwavering commitment to your satisfaction and the project&#39;s success.
@@ -217,7 +217,7 @@ export default function Process() {
         <Discover />
         <Build />
         <Deliver />
-        <Comercial />
+        <Commercial />
       </div>
 
       <Values />

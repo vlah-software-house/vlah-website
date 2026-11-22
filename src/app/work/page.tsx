@@ -166,7 +166,7 @@ export default async function Work() {
 
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: 'Visionhome', logo: logoVisionHome }}
+        client={{ name: 'VisionHome', logo: logoVisionHome }}
       >
           The comprehensive digital transformation for VisionHome Real Estate was truly impressive. I highly recommend their services to elevate any real estate business.
       </Testimonial>
