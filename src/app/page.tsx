@@ -159,7 +159,7 @@ function Services() {
             <Link className='block mt-2 text-red-500' href="/" title="Level Up Your Infrastructure Capabilities">Level Up Your Infrastructure Capabilities <ArrowTopRightOnSquareIcon className="w-4 h-4 inline-block relative -mt-1" /> </Link>
             </ListItem>
             <ListItem title="Customer Experience / Personalization">
-            We help businesses enhance their customer’s entire online journey through strategic personalization, user experience design, and data-driven insights. Our services include user research, customer journey mapping, A/B testing, behavior analysis, and implementing personalized content and product recommendations.
+            We help businesses enhance their customers’ entire online journey through strategic personalization, user experience design, and data-driven insights. Our services include user research, customer journey mapping, A/B testing, behavior analysis, and implementing personalized content and product recommendations.
             <Link className='block mt-2 text-red-500' href="/" title="Dive Into Tailored Customer Journeys">Dive Into Tailored Customer Journeys <ArrowTopRightOnSquareIcon className="w-4 h-4 inline-block relative -mt-1" /> </Link>
             </ListItem>
             <ListItem title="Digital Marketing">
