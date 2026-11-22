@@ -60,7 +60,7 @@ export async function contactUs(prevState: any, formData: FormData) {
     })
     .catch((error) => {
         console.error(error);
-        return { success: false, message: 'Something Wrong. Try again!', errors: [] };
+        return { success: false, message: 'Something went wrong. Try again.', errors: [] };
     });
 
     return resData;

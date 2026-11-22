@@ -25,7 +25,7 @@ function Culture() {
     <div className="mt-24  bg-neutral-950 py-24 sm:mt-32 lg:mt-40 lg:py-32">
       <SectionIntro
         eyebrow="Our Core Values"
-        title="We are committed of doing things differently and focusing on performance."
+        title="We are committed to doing things differently and focusing on performance."
         invert
       >
         <p>
@@ -179,7 +179,7 @@ export default async function About() {
         </p>
         <div className="mt-10 max-w-2xl space-y-6 text-base">
           <p>
-            Our story began in 2018 when two friends, Dragos and Madalin, who met in Gibraltar and shared a passion for technology. What began as a hobby quickly evolved into a thriving software company as more talented individuals joined our team.
+            Our story began in 2018 with two friends, Dragos and Madalin, who met in Gibraltar and shared a passion for technology. What began as a hobby quickly evolved into a thriving software company as more talented individuals joined our team.
           </p>
           <h2 className="mt-2 font-display text-3xl font-medium tracking-tight text-neutral-950 sm:text-4xl">Our Culture</h2>
               <p>We foster a culture that strikes a balance between pursuing our passion for technology and maintaining a healthy life outside of work. While we are dedicated professionals, we are also a family that supports one another.</p>
